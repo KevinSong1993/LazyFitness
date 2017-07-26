@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LazyFitness</string>
+    <string name="search">搜索健身房</string>
+    <string name="radioButtonHome">首页</string>
+    <string name="radioButtonGym">健身</string>
+    <string name="radioButtonOrder">订单</string>
+    <string name="radioButtonUser">用户</string>
+    <string name="miaomiaomiaomiao">喵喵喵喵</string>
+</resources>
