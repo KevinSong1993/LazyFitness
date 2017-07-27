@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ToolbarTitle"
+            android:text="@string/miaomiaomiaomiao"/>
+    </android.support.v7.widget.Toolbar>
+
+    <com.lazyfitness.lazyfitness.widget.PullToRrefresh.PullToRefreshView
+        android:id="@+id/pull_to_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="gym"/>
-</ScrollView>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"/>
+    </com.lazyfitness.lazyfitness.widget.PullToRrefresh.PullToRefreshView>
+
+</RelativeLayout>

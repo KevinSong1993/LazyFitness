@@ -16,12 +16,16 @@
     <style name="ToolbarLinearLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/toolbarTextViewColor</item>
+        <item name="android:background">@drawable/shape_actionbar_search</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
         <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="ToolbarTitle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
     </style>
     <style name="RadioGroup">
         <item name="android:background">#ffffff</item>

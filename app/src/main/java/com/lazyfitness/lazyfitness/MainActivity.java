@@ -49,14 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        //首页搜索栏
-        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.search);
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SearchActivity.class));
-            }
-        });
+
     }
 
 }
