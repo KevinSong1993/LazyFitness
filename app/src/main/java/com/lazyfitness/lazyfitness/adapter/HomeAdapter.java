@@ -10,25 +10,26 @@ import android.widget.TextView;
 import com.lazyfitness.lazyfitness.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class HomeAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List mdatas;
+    private ArrayList<HashMap<String, String>> mDatas;
 
-    public HomeAdapter(List mdatas,Context mContext){
-        this.mdatas = mdatas;
+    public HomeAdapter(ArrayList<HashMap<String, String>> mDatas, Context mContext){
+        this.mDatas = mDatas;
         this.mContext = mContext;
     }
     @Override
     public int getCount() {
-        return mdatas.size();
+        return mDatas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mdatas.get(position);
+        return mDatas.get(position);
     }
 
     @Override
@@ -39,11 +40,25 @@ public class HomeAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.my_listitem,parent,false);
-        TextView itemTitle = (TextView)convertView.findViewById(R.id.ItemTitle);
-        TextView itemText = (TextView)convertView.findViewById(R.id.ItemText);
+        ViewHolder viewHolder = null;
 
+        if(convertView == null){
+            viewHolder = new ViewHolder();
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.my_listitem,parent,false);
+            viewHolder.itemTitle = (TextView) convertView.findViewById(R.id.ItemTitle);
+            viewHolder.itemText = (TextView) convertView.findViewById(R.id.ItemText);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+        viewHolder.itemTitle.setText(mDatas.get(position).get("Title"));
+        viewHolder.itemText.setText(mDatas.get(position).get("Text"));
 
-        return null;
+        return convertView;
+    }
+
+    private class ViewHolder{
+        TextView itemTitle;
+        TextView itemText;
     }
 }
