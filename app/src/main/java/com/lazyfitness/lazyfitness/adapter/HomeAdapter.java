@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lazyfitness.lazyfitness.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class HomeAdapter extends BaseAdapter {
 
@@ -44,9 +44,9 @@ public class HomeAdapter extends BaseAdapter {
 
         if(convertView == null){
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.my_listitem,parent,false);
-            viewHolder.itemTitle = (TextView) convertView.findViewById(R.id.ItemTitle);
-            viewHolder.itemText = (TextView) convertView.findViewById(R.id.ItemText);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item_home,parent,false);
+            viewHolder.itemTitle = (TextView) convertView.findViewById(R.id.itemTitle);
+            viewHolder.itemText = (TextView) convertView.findViewById(R.id.itemText);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -61,4 +61,5 @@ public class HomeAdapter extends BaseAdapter {
         TextView itemTitle;
         TextView itemText;
     }
+
 }

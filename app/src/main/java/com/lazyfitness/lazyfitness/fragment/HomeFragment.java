@@ -26,9 +26,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ListView list = (ListView)view.findViewById(R.id.list_view);
+        ListView list = (ListView)view.findViewById(R.id.listView);
         //下拉刷新
-        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pull_to_refresh);
+        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pullToRefresh);
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
         //数据
         ArrayList<HashMap<String,String>> arrayList = new ArrayList<HashMap<String, String>>();
         for (int i=0;i<10;i++){
-            HashMap<String,String> hashMap = new HashMap<String,String>();
+            HashMap<String,String> hashMap = new HashMap<>();
             hashMap.put("Title","Title "+i);
             hashMap.put("Text","Text "+i);
             arrayList.add(hashMap);

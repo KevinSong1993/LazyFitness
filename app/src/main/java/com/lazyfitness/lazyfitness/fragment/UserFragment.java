@@ -19,7 +19,7 @@ public class UserFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_user, container, false);
 
-        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pull_to_refresh);
+        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pullToRefresh);
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
