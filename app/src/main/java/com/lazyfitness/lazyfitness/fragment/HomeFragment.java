@@ -27,6 +27,7 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ListView list = (ListView)view.findViewById(R.id.listView);
+        list.setOverScrollMode(View.OVER_SCROLL_NEVER);
         //下拉刷新
         mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pullToRefresh);
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
         });
         //数据
         ArrayList<HashMap<String,String>> arrayList = new ArrayList<HashMap<String, String>>();
-        for (int i=0;i<10;i++){
+        for (int i=0;i<30;i++){
             HashMap<String,String> hashMap = new HashMap<>();
             hashMap.put("Title","Title "+i);
             hashMap.put("Text","Text "+i);
