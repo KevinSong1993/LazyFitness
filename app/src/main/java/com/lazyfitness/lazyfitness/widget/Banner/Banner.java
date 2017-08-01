@@ -26,6 +26,8 @@ public class Banner extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    //
+
 
 
 }
