@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class HomeFragment extends Fragment {
     private HomeAdapter homeAdapter;
     private ViewPager viewPager;
     private BannerAdapter bannerAdapter;
+    private int[] mImageIds = new int[]{R.drawable.iriri,R.drawable.iriri};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -38,7 +40,15 @@ public class HomeFragment extends Fragment {
 
         View header = LayoutInflater.from(getContext()).inflate(R.layout.home_banner,null);
         viewPager = (ViewPager) header.findViewById(R.id.homeBanner);
+        ArrayList<ImageView> imageList = new ArrayList<>();
+        for (int mImageId : mImageIds) {
+            ImageView imageView = new ImageView(getContext());
+            imageView.setBackgroundResource(mImageId);
+            imageList.add(imageView);
+        }
+        bannerAdapter = new BannerAdapter(getContext(),imageList);
 
+        viewPager.setAdapter(bannerAdapter);
         //下拉刷新
         mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pullToRefresh);
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
@@ -55,13 +65,13 @@ public class HomeFragment extends Fragment {
         });
         //数据
         ArrayList<HashMap<String,String>> arrayList = new ArrayList<HashMap<String, String>>();
-        for (int i=0;i<30;i++){
+        for (int i=0;i<20;i++){
             HashMap<String,String> hashMap = new HashMap<>();
             hashMap.put("Title","Title "+i);
             hashMap.put("Text","Text "+i);
             arrayList.add(hashMap);
         }
-        viewPager.setAdapter(bannerAdapter);
+
 
         list.addHeaderView(header);
         homeAdapter = new HomeAdapter(arrayList,getContext());
